@@ -8,8 +8,7 @@ Welcome to the Mini Loan Web App! This web application allows authenticated user
 - [Features](#features)
 - [Getting Started](#getting-started)
 - [API Documentation](#api-documentation)
-- [Contributing](#contributing)
-- [License](#license)
+
 
 ## Technologies Used
 
