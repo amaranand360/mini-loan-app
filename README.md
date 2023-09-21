@@ -1,70 +1,86 @@
-# Getting Started with Create React App
+# Mini Loan Web App
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Welcome to the Mini Loan Web App! This web application allows authenticated users to apply for loans, view their loans, and make repayments. It is built using React for the front end and Node.js with MongoDB for the backend.
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+- [Technologies Used](#technologies-used)
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [API Documentation](#api-documentation)
+- [Contributing](#contributing)
+- [License](#license)
 
-### `npm start`
+## Technologies Used
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+- **Frontend:**
+  - React
+  - React Router
+  - Axios for API requests
+  - Other libraries or dependencies you may have used
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Backend:**
+  - Node.js
+  - Express.js
+  - MongoDB for data storage
+  - Mongoose for MongoDB interaction
+  - Other libraries or dependencies you may have used
 
-### `npm test`
+## Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### User Functions
 
-### `npm run build`
+1. **Loan Application:**
+   - Authenticated users can apply for a loan by specifying the loan amount and term.
+   - The application generates scheduled repayments based on the loan details.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+2. **Loan Approval:**
+   - Admin users can approve loan applications, changing the status from PENDING to APPROVED.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+3. **Loan Viewing:**
+   - Authenticated users can view their own loans.
+   - Policies ensure users can only view their own loans.
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+4. **Repayments:**
+   - Users can submit weekly loan repayments.
 
-### `npm run eject`
+5. **Loan Status Update:**
+   - When all scheduled repayments are paid, the loan status changes to PAID.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Admin Functions
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. **Loan Approval:**
+   - Admins can approve pending loan applications.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## Getting Started
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/amaranand360/mini-loan-app.git
 
-## Learn More
+## Loans API
+Create a Loan:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Endpoint: /api/loans
+ - Method: POST
+ - Request body: JSON containing loan amount and term
+ - Response: Loan ID and scheduled repayments
+ - Approve a Loan:
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Endpoint: /api/loans/:id
+ - Method: PUT
+ - Request body: JSON containing status (APPROVED)
+ - Response: Updated loan object
 
-### Code Splitting
+   Get User Loans:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Endpoint: /api/loans/:userId
+ - Method: GET
+ - Response: List of user's loans
+ - Repayments API
+ - Add Repayment:
 
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+### Endpoint: /api/repayments
+ - Method: POST
+ - Request body: JSON containing repayment details
+ - Response: Repayment object
