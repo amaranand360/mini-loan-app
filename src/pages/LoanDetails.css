@@ -1,0 +1,83 @@
+/* Parent container for loan details and payment details cards */
+.loan-details-page {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin: 20px;
+  }
+  
+  /* Loan Details Card */
+  .loan-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 400px;
+  }
+  
+  .loan-card h2 {
+    color: #0077cc;
+    margin-top: 0;
+  }
+  
+  .loan-card div {
+    margin-bottom: 10px;
+  }
+  
+  /* Payment Details Card */
+  .payment-card {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    max-width: 400px;
+  }
+  
+  .payment-card h3 {
+    color: #0077cc;
+    margin-top: 0;
+  }
+  
+  /* Payment Table */
+  .payment-card table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .payment-card th,
+  .payment-card td {
+    padding: 10px;
+    text-align: left;
+  }
+  
+  .payment-card th {
+    background-color: #0077cc;
+    color: #fff;
+  }
+  
+  .payment-card tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .payment-card tr:hover {
+    background-color: #e0e0e0;
+  }
+  
+  /* Responsive Styling */
+  @media screen and (max-width: 768px) {
+    .loan-details-page {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .loan-card,
+    .payment-card {
+      max-width: 100%;
+    }
+  }
+  
